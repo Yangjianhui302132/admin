@@ -1,4 +1,4 @@
-package com.jeff.admin.common;
+package com.jeff.admin.common.utils;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;

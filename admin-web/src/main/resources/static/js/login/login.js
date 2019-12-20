@@ -12,11 +12,21 @@ layui.use(['form','layer','jquery'],function(){
     //登录按钮
     form.on("submit(login)",function(data){
         $(this).text("登录中...").attr("disabled","disabled").addClass("layui-disabled");
-        setTimeout(function(){
-            window.location.href = "/layuicms2.0";
-        },1000);
+        $.post(Context.path+"/login/submit",data.field,function(result){
+            if(result.success){
+                layer.msg(result.msg,{icon:7});
+                setTimeout(function(){
+                    window.location.reload();
+                },1000);
+            }else{
+                layer.msg(result.msg,{icon:5});
+                setTimeout(function(){
+                    $('button[lay-filter=login]').text("登录").removeAttr("disabled").removeClass("layui-disabled");
+                },500);
+            }
+        },'json');
         return false;
-    })
+    });
 
     //表单输入效果
     $(".loginBody .input-item").click(function(e){
