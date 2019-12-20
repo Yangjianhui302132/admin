@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="/common/common-header::common-header"></div>
+<body class="childrenBody">
+	<blockquote class="layui-elem-quote layui-bg-green">
+		<div id="nowTime"></div>
+	</blockquote>
+	<div th:replace="/common/common-footer::common-footer"></div>
+	<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>
