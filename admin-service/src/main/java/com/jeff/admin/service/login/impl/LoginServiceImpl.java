@@ -31,17 +31,26 @@ public class LoginServiceImpl implements LoginService {
         qw.eq("password",user.getPassword());
         SysUser loginUser = sysUser.getOne(qw);
         if(loginUser!=null){//存在用户，登录，存储与redis,session中
+            UserSession userSession = handleUserInfo(loginUser);
             String cookieVal = RandomStringUtils.randomAlphabetic(10);
             String key = UserSession.ADMIN_USER_SESSION_TOKEN +":"+cookieVal;
             //存储redis中
-            redisUtils.set(key,loginUser,UserSession.ADMIN_USER_SESSION_TIMEOUT);
+            redisUtils.set(key,userSession,UserSession.ADMIN_USER_SESSION_TIMEOUT);
             //存储session中
-            SpringUtils.getSession().setAttribute(UserSession.ADMIN_USER_SESSION_TOKEN,loginUser);
+            SpringUtils.getSession().setAttribute(UserSession.ADMIN_USER_SESSION_TOKEN,userSession);
             //向前端设置随机生成的字符串cookie
             CookieUtils.setCookie(SpringUtils.getRequest(),SpringUtils.getResponse(),UserSession.ADMIN_USER_COOKIE_TOKEN, cookieVal,UserSession.ADMIN_USER_SESSION_TIMEOUT.intValue());
             return BaseResponse.getSuccessResponse("登录成功");
         }else{
             return BaseResponse.getFailResponse("账号或密码不正确");
         }
+    }
+
+    private UserSession handleUserInfo(SysUser loginUser) {
+        UserSession us = new UserSession();
+        us.setPhone(loginUser.getPhone());
+        us.setTrueName(loginUser.getTrueName());
+        us.setUserName(loginUser.getUserName());
+        return us;
     }
 }

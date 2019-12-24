@@ -6,6 +6,9 @@
 		<div id="nowTime"></div>
 	</blockquote>
 	<div th:replace="/common/common-footer::common-footer"></div>
+	<script th:inline="javascript">
+		var userName = [[${SYS_USER_INFO.userName}]];
+	</script>
 	<script type="text/javascript" th:src="@{/js/main.js}"></script>
 </body>
 </html>

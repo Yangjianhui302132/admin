@@ -11,5 +11,6 @@ public class UserSession {
     public static String ADMIN_USER_COOKIE_TOKEN = "JEFF_TOKEN";
 
     private String userName;
-    private String password;
+    private String trueName;
+    private String phone;
 }

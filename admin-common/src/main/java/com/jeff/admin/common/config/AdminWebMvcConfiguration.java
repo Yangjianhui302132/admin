@@ -1,6 +1,7 @@
 package com.jeff.admin.common.config;
 
 import com.jeff.admin.common.config.interceptor.LoginHandlerInterceptor;
+import com.jeff.admin.common.config.interceptor.ViewContextInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -17,6 +18,8 @@ public class AdminWebMvcConfiguration implements WebMvcConfigurer {
 
     @Autowired
     private LoginHandlerInterceptor loginHandlerInterceptor;
+    @Autowired
+    private ViewContextInterceptor viewContextInterceptor;
 
     /**
      * 默认访问的是登录页
@@ -41,6 +44,10 @@ public class AdminWebMvcConfiguration implements WebMvcConfigurer {
                  //放行静态资源
                  "/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg",
                  "/**/*.jpeg", "/**/*.gif", "/**/fonts/*", "/**/*.svg","/**/*.json");
+        //注册页面上下文参数拦截器
+        registry.addInterceptor(viewContextInterceptor)
+                //拦截地址
+                .addPathPatterns("/**");
     }
 
     @Override

@@ -51,10 +51,10 @@ mybatis-plus:
 #日志
 logging:
   level:
-    root: debug
+    root: error
     org:
       springframework:
         web: debug
     com:
       jeff:
-        admin: debug
+        admin: error
