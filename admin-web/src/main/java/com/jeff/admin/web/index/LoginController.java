@@ -18,7 +18,7 @@ public class LoginController {
 
     @RequestMapping("")
     public String loginIndex(){
-        return "/page/login/login";
+        return "page/login/login";
     }
 
     @RequestMapping("/submit")

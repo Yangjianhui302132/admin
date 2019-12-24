@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:replace="/common/common-header::common-header"></div>
+<div th:replace="common/common-header::common-header"></div>
 <body class="childrenBody">
 	<blockquote class="layui-elem-quote layui-bg-green" style="margin-top: 10px;">
 		<div id="nowTime"></div>
 	</blockquote>
-	<div th:replace="/common/common-footer::common-footer"></div>
+	<div th:replace="common/common-footer::common-footer"></div>
 	<script th:inline="javascript">
 		var userName = [[${SYS_USER_INFO.userName}]];
 	</script>

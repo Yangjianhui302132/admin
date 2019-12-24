@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="loginHtml" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="/common/common-header::common-header"></div>
+<div th:replace="common/common-header::common-header"></div>
 <body class="loginBody">
 	<form class="layui-form">
 		<div class="login_face"><img th:src="@{/images/face.jpg}" class="userAvatar"></div>
@@ -26,7 +26,7 @@
 			<a href="javascript:;" class="seraph icon-sina layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a>
 		</div>
 	</form>
-	<div th:replace="/common/common-footer::common-footer"></div>
+	<div th:replace="common/common-footer::common-footer"></div>
 	<script type="text/javascript" th:src="@{/js/login/login.js}"></script>
 	<script type="text/javascript" th:src="@{/js/cache.js}"></script>
 </body>
