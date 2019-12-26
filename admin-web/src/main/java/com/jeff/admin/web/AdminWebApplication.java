@@ -9,11 +9,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@MapperScan("com.jeff.admin")
+@MapperScan("com.jeff.admin.dao.*")
 @ComponentScan("com.jeff.admin")
 @EnableEurekaClient
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(value = "com.jeff.admin.feign.*")
 public class AdminWebApplication {
 
     public static void main(String[] args) {

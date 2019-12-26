@@ -1,8 +1,7 @@
 package com.jeff.admin.web.member;
 
-import com.jeff.admin.service.member.MemberService;
+import com.jeff.admin.feign.member.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

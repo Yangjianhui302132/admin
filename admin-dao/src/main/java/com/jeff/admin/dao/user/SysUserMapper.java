@@ -1,4 +1,4 @@
-package com.jeff.admin.user.mapper;
+package com.jeff.admin.dao.user;
 
 import com.jeff.admin.entity.user.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

@@ -1,4 +1,4 @@
-package com.jeff.admin.service.member;
+package com.jeff.admin.feign.member;
 
 import org.springframework.stereotype.Component;
 

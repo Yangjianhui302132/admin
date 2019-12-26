@@ -1,7 +1,7 @@
 package com.jeff.admin.service.user.impl;
 
 import com.jeff.admin.entity.user.SysUser;
-import com.jeff.admin.user.mapper.SysUserMapper;
+import com.jeff.admin.dao.user.SysUserMapper;
 import com.jeff.admin.service.user.SysUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
