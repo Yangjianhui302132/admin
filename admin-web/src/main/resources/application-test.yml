@@ -1,6 +1,6 @@
 #基础设置
 server:
-  port: 8090
+  port: 8081
   servlet:
     context-path: /admin
 
@@ -35,6 +35,9 @@ spring:
         max-idle: 10
         # 连接池中的最小空闲连接
         min-idle: 0
+  #程序
+  application:
+    name: admin
 
 
 
@@ -58,3 +61,16 @@ logging:
     com:
       jeff:
         admin: error
+
+#注册中心
+eureka:
+  regist:
+    host: localhost
+    port: 8090
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.regist.host}:${eureka.regist.port}/eureka/
+
+feign:
+  hystrix:
+    enabled: true
